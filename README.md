@@ -27,14 +27,14 @@ Please consider [jquery-turbolinks](https://github.com/kossnocorp/jquery.turboli
 
 Add to your `app/assets/javascripts/application.js` if use with jQuery
 
-```coffee
+```js
 //= require jquery
 //= require chosen-jquery
 ```
 
 Or with Prototype
 
-```coffee
+```js
 //= require jquery
 //= require chosen-prototype
 ```
@@ -55,22 +55,24 @@ For rails 6, remember to add `javascript_include_tag` in `app/views/layouts/appl
 <%= javascript_include_tag 'application' %>
 ```
 
-Add to one coffee script file, like `scaffold.js.coffee`
+Add to one javascript file, like `scaffold.js`
 
-```coffee
-$ ->
-  # enable chosen js
-  $('.chosen-select').chosen
-    allow_single_deselect: true
-    no_results_text: 'No results matched'
+```js
+// enable chosen js
+$(function() {
+  $('.chosen-select').chosen({
+    allow_single_deselect: true,
+    no_results_text: 'No results matched',
     width: '200px'
+  });
+});
 ```
 
 Notice: `width` option is required since `Chosen 0.9.15`.
 
 And this file must be included in `application.js`
 
-```coffee
+```js
 //= require chosen-jquery
 //= require scaffold
 ```
